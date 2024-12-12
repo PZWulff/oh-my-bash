@@ -183,6 +183,7 @@ function fg_color {
   cyan)       echo 36;;
   white)      echo 37;;
   orange)     echo 38\;5\;166;;
+  lilac)      echo 38\;5\;61;;
   esac
 }
 
@@ -197,6 +198,7 @@ function bg_color {
   cyan)       echo 46;;
   white)      echo 47;;
   orange)     echo 48\;5\;166;;
+  lilac)      echo 48\;5\;61;;
   esac;
 }
 
@@ -295,7 +297,7 @@ function prompt_virtualenv {
     # corresponds to the version number.
     local VENV_VERSION=$(awk '{print $NF}' <<< "$VERSION_OUTPUT")
 
-    prompt_segment cyan white "[v] $(basename "$VENV_VERSION")"
+    prompt_segment lilac white "[v] $(basename "$VENV_VERSION")"
   fi
 }
 
@@ -314,9 +316,9 @@ function prompt_pyenv {
       if [[ -d $PYENV_VIRTUAL_ENV ]]; then
         local VERSION_OUTPUT=$("$PYENV_VIRTUAL_ENV"/bin/python --version 2>&1)
         local PYENV_VENV_VERSION=$(awk '{print $NF}' <<< "$VERSION_OUTPUT")
-        prompt_segment cyan white "[$PYENV_VERSION] $(basename "$PYENV_VENV_VERSION")"
+        prompt_segment lilac white "[$PYENV_VERSION] $(basename "$PYENV_VENV_VERSION")"
       else
-        prompt_segment cyan white "$PYENV_VERSION"
+        prompt_segment lilac white "$PYENV_VERSION"
       fi
     fi
   fi
